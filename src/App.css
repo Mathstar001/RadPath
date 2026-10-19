@@ -6,3 +6,40 @@
 footer { min-height:82px; border-top:1px solid var(--line); background:#fff; display:flex; align-items:center; gap:28px; padding:0 max(30px,calc((100% - 1120px)/2)); color:#868b8e; font:10px var(--mono); }footer .brand { margin-right:auto; color:var(--ink); }footer .brand small { display:none; }footer a { color:var(--orange-dark); }
 .fault-table-wrap { overflow-x:auto; }.fault-table { width:100%; min-width:510px; border-collapse:collapse; margin-top:4px; font-size:10px; line-height:1.5; }.fault-table th { background:#f4f5f5; color:#6b7073; font:700 9px var(--mono); letter-spacing:.3px; text-align:left; text-transform:uppercase; }.fault-table th,.fault-table td { border-bottom:1px solid #ececed; padding:10px 8px; vertical-align:top; }.fault-table td { color:#747a7d; }.fault-table td:first-child { color:#303436; font-weight:700; width:27%; }
 @media (max-width:760px) { .site-header{height:68px}.header-inner{padding:0 18px;gap:0}.header-inner nav,.header-actions .search-box{display:none}.icon-button{display:block}.home-hero-inner{padding:56px 20px 55px}.home-hero h1{font-size:39px;letter-spacing:-1.8px}.home-hero p{font-size:13px}.hero-mark{right:-65px;top:95px;font-size:250px;opacity:.7}.home-content,.content,.detail-page{padding:42px 18px 70px}.section-intro,.page-heading{display:block}.content-note{display:block;margin-top:12px}.home-category-card{padding:20px;align-items:flex-start}.home-category-card p{line-height:1.5}.category-link{align-self:center}.page-heading h1,.category-page h1{font-size:35px}.page-search{margin-top:25px}.page-search .search-box{width:100%}.page-topline{margin-bottom:29px}.verification-banner{margin-top:25px}.projection-grid{grid-template-columns:1fr}.detail-heading{display:block}.detail-heading h1{font-size:35px}.detail-heading .status-pill{margin-top:18px}.detail-grid{grid-template-columns:1fr}.positioning-layout{grid-template-columns:1fr}.diagram-placeholder{height:220px}.detail-card,.side-card{padding:20px}footer{padding:20px 18px;display:grid;gap:10px}footer .brand{margin:0}footer span{line-height:1.5} }
+
+/* Accessibility and responsive refinements. */
+html, body, #root { max-width:100%; overflow-x:hidden; }
+h1, h2, h3 { font-family:Arial, Helvetica, sans-serif; font-weight:700; }
+.home-hero h1, .page-heading h1, .category-page h1, .detail-heading h1 { font-weight:700; }
+.section-heading h2, .side-card h2, .home-category-card h3 { font-weight:700; }
+.diagram-placeholder img, .radiograph-placeholder img { display:block; max-width:100%; height:auto; }
+.mobile-nav { display:none; }
+
+@media (max-width:900px) {
+  .header-inner { padding-left:22px; padding-right:22px; gap:34px; }
+  .projection-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .detail-grid { grid-template-columns:minmax(0, 1.5fr) minmax(220px, 1fr); }
+  .positioning-layout { grid-template-columns:1fr; }
+  .diagram-placeholder { max-height:270px; }
+}
+
+@media (max-width:760px) {
+  .desktop-nav { display:none; }
+  .mobile-nav { display:flex; flex-direction:column; gap:0; position:absolute; top:68px; left:0; right:0; padding:8px 18px 14px; background:var(--ink); border-top:1px solid #3c3f40; box-shadow:0 8px 16px #0003; z-index:20; }
+  .mobile-nav a { min-height:46px; display:flex; align-items:center; color:#d0d2d3; border-bottom:1px solid #36393a; font-size:14px; }
+  .mobile-nav a.active { color:var(--orange); }
+  .mobile-nav a:last-child { border-bottom:0; }
+  .header-actions { margin-left:auto; }
+  .icon-button { min-width:58px; min-height:40px; cursor:pointer; }
+  .projection-grid { grid-template-columns:1fr; }
+  .projection-card { min-height:170px; padding:19px; }
+  .page-heading h1, .category-page h1, .detail-heading h1 { line-height:1.12; }
+  .page-heading p, .category-lede, .detail-heading p { max-width:100%; }
+  .fault-table-wrap { margin-left:-4px; margin-right:-4px; padding-bottom:4px; }
+  .fault-table { min-width:510px; }
+  .fault-table th, .fault-table td { padding:9px 7px; }
+  .detail-card, .side-card { width:100%; }
+  .home-category-card { gap:13px; }
+  .home-category-card .category-link { white-space:nowrap; }
+  footer { width:100%; }
+}

@@ -11,7 +11,9 @@ function SearchBar({ value, onChange }) {
 }
 
 function Header({ search, setSearch }) {
-  return <header className="site-header"><div className="header-inner"><Logo /><nav aria-label="Primary navigation"><a href="#/">Home</a><a className="active" href="#/category/chest">Chest</a></nav><div className="header-actions"><SearchBar value={search} onChange={setSearch} /><button className="icon-button" type="button" aria-label="Menu">Menu</button></div></div></header>
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
+  return <header className="site-header"><div className="header-inner"><Logo /><nav className="desktop-nav" aria-label="Primary navigation"><a href="#/">Home</a><a className="active" href="#/category/chest">Chest</a></nav><div className="header-actions"><SearchBar value={search} onChange={setSearch} /><button className="icon-button" type="button" aria-label="Toggle navigation menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? 'Close' : 'Menu'}</button></div></div>{menuOpen && <nav className="mobile-nav" aria-label="Mobile navigation"><a href="#/" onClick={closeMenu}>Home</a><a className="active" href="#/category/chest" onClick={closeMenu}>Chest</a></nav>}</header>
 }
 
 function StatusPill({ children, tone = '' }) {
