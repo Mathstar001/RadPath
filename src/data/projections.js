@@ -47,6 +47,10 @@ function createChestProjection([id, name, aliases]) {
     ],
     faults: [{ fault: 'Fault list not yet verified', effect: needsVerification('the effect of each fault'), remedy: needsVerification('faults and remedies') }],
     references: ['Reference placeholder: add the approved textbook, local protocol, or professional guideline citation.'],
+    radiograph: {
+      note: 'No radiograph is included until an openly licensed or public-domain example for this exact projection is verified. A suitable image should show the complete requested anatomy and the correct projection label.',
+      licence: 'Image source/licence: not applicable — this page intentionally uses a placeholder rather than an unverified or copyrighted clinical image.',
+    },
     verification: 'Needs clinical verification',
     verificationTone: 'warning',
   }
